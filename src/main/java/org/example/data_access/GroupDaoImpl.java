@@ -86,7 +86,7 @@ public class GroupDaoImpl implements GroupDao {
     @Override
     public List<Student> unplaceStudents(Group group) {
         List<Student> unplaced = null;
-        if (students.size() < group.getMinNumberOfStudents()) {
+        if (students.size() < minNumberOfStudents) {
             unplaced = new ArrayList<Student>(students);
             students.clear();
         }

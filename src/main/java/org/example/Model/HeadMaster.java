@@ -29,10 +29,6 @@ public class HeadMaster {
         this.headMasterName = headMasterName;
     }
 
-    public void addStudent(Student student){
-        studentList.add(student);
-    }
-
     public int totalNumberStudent(){
         return studentList.size();
     }

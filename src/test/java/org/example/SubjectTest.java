@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class SubjectTest {
-    private List<Subject> subjectList;
+    private List<Subject> subjectList = new ArrayList<>();
 
     @Before
     public void setUp() throws Exception {

@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
-    private static List<Student> students;
-    private GradeLevel gradeLevel;
-    private List<Subject> specifiedSubject = new ArrayList<>();
+    private static List<Student> students = new ArrayList<>();
+    private static List<GradeLevel> gradeLevel = new ArrayList<>();
+    private static List<Subject> specifiedSubject = new ArrayList<>();
 
     @Override
     public Student saveStudent(Student student){
@@ -59,11 +59,6 @@ public class StudentDaoImpl implements StudentDao {
             }
         }
         return false;
-    }
-
-    @Override
-    public GradeLevel getGradeLevel() {
-        return gradeLevel;
     }
 
     @Override

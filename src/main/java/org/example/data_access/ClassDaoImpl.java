@@ -3,11 +3,12 @@ package org.example.data_access;
 import org.example.Model.Classes;
 import org.example.Model.Student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClassDaoImpl implements ClassDao {
-    private static List<Classes> classesList;
-    private static List<Student> students;
+    private static List<Classes> classesList = new ArrayList<>();
+    private static List<Student> students = new ArrayList<>();
 
     @Override
     public Classes saveClass(Classes classes) {
@@ -25,6 +26,16 @@ public class ClassDaoImpl implements ClassDao {
             students.add(student);
         System.out.println(student.getFullName() + "Registered!");
         return student;
+    }
+
+    @Override
+    public int totalNumberOfStudents() {
+        return students.size();
+    }
+
+    @Override
+    public boolean studentsExists(Student student) {
+        return students.contains(student);
     }
 
     @Override

@@ -3,10 +3,11 @@ package org.example.data_access;
 import org.example.Model.Student;
 import org.example.Model.Subject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubjectDaoImpl implements SubjectDao {
-    private static List<Subject> subjectList;
+    private static List<Subject> subjectList = new ArrayList<>();
 
 
     @Override

@@ -8,6 +8,8 @@ import java.util.List;
 public interface ClassDao {
     Classes saveClass(Classes classes);
     Student register(Student student);
+    int totalNumberOfStudents();
+    boolean studentsExists(Student student);
     Student unregister(Student student);
     Classes findById(int Id);
     List<Classes> findByName(String name);

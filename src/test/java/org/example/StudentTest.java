@@ -10,12 +10,11 @@ import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 
 public class StudentTest {
-    private Student student;
-    private LocalDate birthDate;
+    private Student student = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5"));
 
     @Before
     public void setUp() throws Exception {
-        student = new Student(1, "Omar", birthDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5"));
+        student = new Student(1, "Omar", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5"));
 }
 
     @Test

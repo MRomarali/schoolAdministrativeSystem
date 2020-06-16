@@ -3,12 +3,13 @@ package org.example.data_access;
 import org.example.Model.GradeLevel;
 import org.example.Model.Subject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GradeLevelDaoImpl implements GradeLevelDao {
-    private static List<GradeLevel> gradeLevels;
-    private List<Subject> commonSubjectsList;
-    private List<Subject> individualSubjectChoiceList;
+    private static List<GradeLevel> gradeLevels = new ArrayList<>();
+    private static List<Subject> commonSubjectsList = new ArrayList<>();
+    private static List<Subject> individualSubjectChoiceList = new ArrayList<>();
 
     @Override
     public GradeLevel saveGrade(GradeLevel gradeLevel) {
@@ -55,8 +56,8 @@ public class GradeLevelDaoImpl implements GradeLevelDao {
 
     @Override
     public void addCommonSubjects(Subject commonSubject) {
-        if (!this.commonSubjectsList.contains(commonSubject)) {
-            this.commonSubjectsList.add(commonSubject);
+        if (!commonSubjectsList.contains(commonSubject)) {
+            commonSubjectsList.add(commonSubject);
         }
     }
 

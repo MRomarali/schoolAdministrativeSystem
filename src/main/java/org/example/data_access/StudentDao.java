@@ -12,7 +12,6 @@ public interface StudentDao {
     Student findById(int id);
     List<Student> findAll();
     boolean deleteStudent(Student student);
-    GradeLevel getGradeLevel();
     List<Subject> getSpecifiedSubject();
     void addSubject(Subject subject);
     void addSpecifiedSubject(Subject specifiedSubject);

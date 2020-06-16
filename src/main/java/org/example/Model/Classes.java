@@ -38,15 +38,6 @@ public class Classes {
         this.students = students;
     }
 
-
-    public boolean studentsExists(Student student){
-        return students.contains(student);
-    }
-
-    public int totalNumberOfStudents(){
-        return students.size();
-    }
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Classes{");

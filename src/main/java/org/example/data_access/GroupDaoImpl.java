@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupDaoImpl implements GroupDao {
-    private static List<Group> groupList;
-    private static List<Student> students;
+    private static List<Group> groupList = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
     private List<Classes> classes = new ArrayList<>();
     private List<Subject> subjects = new ArrayList<>();
     private boolean lessThan = false;

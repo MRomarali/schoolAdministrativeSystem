@@ -24,7 +24,7 @@ public class ClassDaoImpl implements ClassDao {
     public Student register(Student student) {
         if(!students.contains(student))
             students.add(student);
-        System.out.println(student.getFullName() + "Registered!");
+        System.out.println(student.getFullName() + " Registered!");
         return student;
     }
 

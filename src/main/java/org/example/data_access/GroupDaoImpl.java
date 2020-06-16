@@ -17,25 +17,19 @@ public class GroupDaoImpl implements GroupDao {
     private int maxNumberOfStudents;
     private int minNumberOfStudents;
 
-
-    @Override
-    public Group saveGroup(Group group) {
-        if (groupList.contains(group)) {
-            groupList.add(group);
-            System.out.println(group.getGroupName() + "Added!");
-            return group;
-        }
-        return null;
-    }
-
-    @Override
-    public void addClass(Classes classes) {
-        this.classes.add(classes);
-    }
-
     @Override
     public void addSubject(Subject subject) {
         subjects.add(subject);
+    }
+
+    @Override
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    @Override
+    public boolean removeStudent(Student student) {
+        return students.remove(student);
     }
 
     @Override
@@ -75,68 +69,6 @@ public class GroupDaoImpl implements GroupDao {
         return subjects.contains(subject);
     }
 
-    @Override
-    public boolean setStudents(List<Student> students) {
-        if (subjects.size() < maxNumberOfStudents){
-            lessThan = (students.size() >= minNumberOfStudents)?true : false;
-            this.students = students;
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public Group findById(int Id) {
-        for (Group group: groupList) {
-            if (group.getGroupId() == Id) {
-                return group;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Group> findByName(String name) {
-        for (Group group: groupList) {
-            if (group.getGroupName().equalsIgnoreCase(name)) {
-                return groupList;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Group> findAll() {
-        for (Group group: groupList) {
-            return groupList;
-        }
-        return null;
-    }
-
-    @Override
-    public List<Student> unplaceStudentsFromGroup(Group group) {
-        List<Student> unplaced = null;
-        if (students.size() < minNumberOfStudents) {
-            unplaced = new ArrayList<Student>(students);
-            students.clear();
-        }
-        for(int i=0; i< unplaced.size(); i++)
-            informHeadMaster(unplaced.get(i));
-        return unplaced;
-
-    }
-
-    @Override
-    public boolean removeGroup(Group group) {
-        for (Group deleteGroup: groupList) {
-            if (deleteGroup.getGroupName().equals(group)) {
-                groupList.remove(deleteGroup);
-                System.out.println(group.getGroupName() + "Deleted!");
-            }
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public boolean unplaceStudent(Student student) {

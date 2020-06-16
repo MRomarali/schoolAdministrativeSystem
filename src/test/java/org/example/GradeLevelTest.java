@@ -1,43 +1,41 @@
 package org.example;
 
-import org.example.Model.GradeLevel;
 import org.example.Model.Subject;
-import org.example.data_access.GradeLevelDao;
 import org.example.data_access.GradeLevelDaoImpl;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class GradeLevelTest {
-    private GradeLevel gradeLevel =  new GradeLevel(2, "Grade 5");
     private GradeLevelDaoImpl gradeLevelDaoImpl = new GradeLevelDaoImpl();
-
+    private Subject subject1, subject2, subject3, subject4, subject5;
 
     @Before
     public void setUp() throws Exception {
-        gradeLevelDaoImpl.addCommonSubjects(new Subject(1,"Math"));
-        gradeLevelDaoImpl.addCommonSubjects(new Subject(2,"Swedish"));
-        gradeLevelDaoImpl.addIndividualSubject(new Subject(3,"English"));
-        gradeLevelDaoImpl.addIndividualSubject(new Subject(4,"French"));
-        gradeLevelDaoImpl.addIndividualSubject(new Subject(5, "Spanish"));
-    }
-
-    @After
-    public void tearDown() throws Exception {
+        subject1 = new Subject(1,"Math");
+        subject2 = new Subject(2,"Swedish");
+        subject3 = new Subject(3,"English");
+        subject4 = new Subject(4,"French");
+        subject5 = new Subject(5, "Spanish");
     }
 
     @Test
     public void addCommonSubject() throws Exception {
-        assertEquals("Math", gradeLevel.getCommonSubjects().get(0).getSubjectName());
-        assertEquals(2, gradeLevel.getCommonSubjects().get(1).getSubjectId());
+        assertEquals(subject1, gradeLevelDaoImpl.addCommonSubjects(subject1));
     }
+
+    /*@Test
+    public void getTotalSubjects() throws Exception {
+        assertEquals(subject1, gradeLevelDaoImpl.getTotalSubjects());
+    }*/
 
     @Test
     public void addIndividualChosenSubject() throws Exception {
-        assertEquals("Math", gradeLevel.getIndividualChosenSubjects().get(0).getSubjectName());
-        assertEquals("Swedish", gradeLevel.getIndividualChosenSubjects().get(1).getSubjectName());
-        assertEquals("English", gradeLevel.getIndividualChosenSubjects().get(2).getSubjectId());
+        assertEquals(subject1, gradeLevelDaoImpl.addIndividualSubject(subject1));
+        assertEquals(subject2, gradeLevelDaoImpl.addIndividualSubject(subject2));
+        assertEquals(subject3, gradeLevelDaoImpl.addIndividualSubject(subject3));
+        assertEquals(subject4, gradeLevelDaoImpl.addIndividualSubject(subject4));
+        assertEquals(subject5, gradeLevelDaoImpl.addIndividualSubject(subject5));
     }
 }

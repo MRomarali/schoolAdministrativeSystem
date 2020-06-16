@@ -5,12 +5,10 @@ import org.example.Model.Group;
 import org.example.Model.Student;
 import org.example.Model.Subject;
 import org.example.data_access.GroupDaoImpl;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -52,14 +50,8 @@ public class GroupTest {
         groupDaoImpl.addStudentToGroup(student5);
         groupDaoImpl.addStudentToGroup(student6);
     }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
     @Test
     public void addSubject() throws Exception {
-
         assertEquals(groupDaoImpl.totalNumberOfSubjects(), 5);
     }
 
@@ -72,33 +64,20 @@ public class GroupTest {
     }
 
     @Test
-    public void addStudent() throws Exception {
-
-        assertEquals(groupDaoImpl.totalNumberOfStudents(), 5);
-    }
-
-    @Test
     public void removeStudent() throws Exception {
 
-        groupDaoImpl.unplaceStudent(student5);
-        System.out.print("The above one is from RemoveStudent TestCase"); //For convenient logging
-        assertFalse(groupDaoImpl.checksStudent(student5));
-        assertEquals(groupDaoImpl.totalNumberOfStudents(), 5);
+        groupDaoImpl.removeStudent(student1);
+        assertFalse(groupDaoImpl.checksStudent(student1));
+        assertEquals(groupDaoImpl.totalNumberOfSubjects(), 5);
     }
 
     @Test
     public void unplaceStudents() throws Exception {
-        groupDaoImpl.unplaceStudent(student1);
+        groupDaoImpl.addStudent(student1);
+        groupDaoImpl.addStudent(student2);
+        groupDaoImpl.addStudent(student3);
         groupDaoImpl.unplaceStudent(student2);
-        groupDaoImpl.unplaceStudent(student3);
-        groupDaoImpl.unplaceStudent(student4);
-        groupDaoImpl.unplaceStudent(student5);
 
-
-        assertEquals(groupDaoImpl.totalNumberOfStudents(), 1);
-        List<Student> unplaced = groupDaoImpl.unplaceStudentsFromGroup(group1);
-        assertEquals(unplaced.size(), 5);
-        assertEquals(unplaced.get(0).getStudentId(), 5);
-        assertEquals(groupDaoImpl.totalNumberOfStudents(), 0);
+        assertEquals(groupDaoImpl.totalNumberOfStudents(), 2);
     }
 }

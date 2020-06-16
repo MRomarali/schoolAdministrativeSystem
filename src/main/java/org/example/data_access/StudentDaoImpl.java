@@ -9,12 +9,11 @@ import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
     private static List<Student> students = new ArrayList<>();
-    private static List<GradeLevel> gradeLevel = new ArrayList<>();
     private static List<Subject> specifiedSubject = new ArrayList<>();
 
     @Override
     public Student saveStudent(Student student){
-        if (students.contains(student)) {
+        if (!students.contains(student)) {
             students.add(student);
             System.out.println(student.getFullName() + "Added!");
             return student;
@@ -22,70 +21,22 @@ public class StudentDaoImpl implements StudentDao {
         return null;
     }
 
-
     @Override
-    public Student findByName(String name) {
-        for (Student student:students) {
-            if (student.getFullName().equalsIgnoreCase(name)) {
-                return student;
-            }
-        }
-        return null;
+    public boolean studentsExists(Student student) {
+        return students.contains(student);
     }
 
     @Override
-    public Student findById(int id) {
-        for (Student student:students) {
-            if (student.getStudentId() == id) {
-                return student;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Student> findAll() {
-        for (Student student:students) {
-            return students;
-        }
-        return null;
+    public int totalNumberOfStudents() {
+        return students.size();
     }
 
     @Override
     public boolean deleteStudent(Student student) {
-        for (Student removeStudent:students) {
-            if (removeStudent.getFullName().equals(student)) {
-                students.remove(removeStudent);
-            }
-        }
-        return false;
-    }
+        return students.remove(student);}
 
     @Override
-    public List<Subject> getSpecifiedSubject() {
-        return specifiedSubject;
-    }
-
-    @Override
-    public void addSubject(Subject subject) {
-
-        if (!this.specifiedSubject.contains(subject)) {
-            this.specifiedSubject.add(subject);
-        }
-    }
-
-    @Override
-    public void addSpecifiedSubject(Subject specifiedSubject) {
-        this.specifiedSubject.add(specifiedSubject);
-    }
-
-    @Override
-    public void setSpecifiedSubject(List<Subject> specifiedSubject) {
-        this.specifiedSubject = specifiedSubject;
-    }
-
-    @Override
-    public void removeSubject(Subject subject) {
-        this.specifiedSubject.remove(subject);
+    public boolean checksStudent(Student student) {
+        return students.contains(student);
     }
 }

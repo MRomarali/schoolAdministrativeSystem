@@ -8,13 +8,8 @@ import java.util.List;
 
 public interface StudentDao {
     Student saveStudent(Student student);
-    Student findByName(String name);
-    Student findById(int id);
-    List<Student> findAll();
+    boolean studentsExists(Student student);
+    int totalNumberOfStudents();
     boolean deleteStudent(Student student);
-    List<Subject> getSpecifiedSubject();
-    void addSubject(Subject subject);
-    void addSpecifiedSubject(Subject specifiedSubject);
-    void setSpecifiedSubject(List<Subject> specifiedSubject);
-    void removeSubject(Subject subject);
+    boolean checksStudent(Student student);
 }

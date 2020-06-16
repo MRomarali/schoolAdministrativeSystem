@@ -18,24 +18,8 @@ public class Classes {
         return classesId;
     }
 
-    public void setClassesId(int classesId) {
-        this.classesId = classesId;
-    }
-
     public String getClassesName() {
         return classesName;
-    }
-
-    public void setClassesName(String classesName) {
-        this.classesName = classesName;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
     }
 
     @Override

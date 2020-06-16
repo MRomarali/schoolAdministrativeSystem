@@ -24,48 +24,20 @@ public class Student {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
     public String getFullName() {
         return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public int getCareGiverContactNumber() {
         return careGiverContactNumber;
-    }
-
-    public void setCareGiverContactNumber(int careGiverContactNumber) {
-        this.careGiverContactNumber = careGiverContactNumber;
-    }
-
-    public GradeLevel getGradeLevel() {
-        return gradeLevel;
-    }
-
-    public void setGradeLevel(GradeLevel gradeLevel) {
-        this.gradeLevel = gradeLevel;
     }
 
     @Override

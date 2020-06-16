@@ -1,19 +1,19 @@
 package org.example;
 
-import org.example.Model.GradeLevel;
-import org.example.Model.Group;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 import org.example.data_access.GroupDaoImpl;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 public class GroupTest {
+    private List<Group> groupList = new ArrayList<>();
     private GroupDaoImpl groupDaoImpl = new GroupDaoImpl();
     private Group group1 = new Group(1,"Spanish", 6, 2);
     private Subject subject1, subject2, subject3, subject4, subject5;
@@ -79,5 +79,18 @@ public class GroupTest {
         groupDaoImpl.unplaceStudent(student2);
 
         assertEquals(groupDaoImpl.totalNumberOfStudents(), 2);
+    }
+
+    @Test
+    public void testToString() throws Exception {
+        for (Group group : groupList) {
+            assertEquals(group.toString(), "Group{groupId="+group.getGroupId()+"," + " groupName="+ "'"+group.getGroupName()+"'}");
+        }
+    }
+    @Test
+    public void testToStrings() throws Exception {
+
+        assertEquals(1, group1.getGroupId());
+        assertEquals("group1", group1.getGroupName());
     }
 }

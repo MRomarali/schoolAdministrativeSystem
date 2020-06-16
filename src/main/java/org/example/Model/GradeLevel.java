@@ -23,14 +23,6 @@ public class GradeLevel {
         return grade;
     }
 
-    public List<Subject> getCommonSubjects() {
-        return commonSubjects;
-    }
-
-    public List<Subject> getIndividualChosenSubjects() {
-        return individualChosenSubjects;
-    }
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("GradeLevel{");

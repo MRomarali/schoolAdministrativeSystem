@@ -1,14 +1,8 @@
 package org.example.Model;
 
-import org.example.data_access.GroupDaoImpl;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Group {
     private int groupId;
     private String groupName;
-    private GroupDaoImpl groupDaoImpl;
     private int maxNumberOfStudents;
     private int minNumberOfStudents;
 
@@ -24,41 +18,10 @@ public class Group {
         return groupId;
     }
 
-    public void setGroupId(int groupId) {
-        this.groupId = groupId;
-    }
-
     public String getGroupName() {
         return groupName;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public GroupDaoImpl getGroupDaoImpl() {
-        return groupDaoImpl;
-    }
-
-    public void setGroupDaoImpl(GroupDaoImpl groupDaoImpl) {
-        this.groupDaoImpl = groupDaoImpl;
-    }
-
-    public int getMaxNumberOfStudents() {
-        return maxNumberOfStudents;
-    }
-
-    public void setMaxNumberOfStudents(int maxNumberOfStudents) {
-        this.maxNumberOfStudents = maxNumberOfStudents;
-    }
-
-    public int getMinNumberOfStudents() {
-        return minNumberOfStudents;
-    }
-
-    public void setMinNumberOfStudents(int minNumberOfStudents) {
-        this.minNumberOfStudents = minNumberOfStudents;
-    }
 
     @Override
     public String toString() {

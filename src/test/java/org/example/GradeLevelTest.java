@@ -1,13 +1,20 @@
 package org.example;
 
+import org.example.Model.GradeLevel;
+import org.example.Model.Group;
 import org.example.Model.Subject;
 import org.example.data_access.GradeLevelDaoImpl;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class GradeLevelTest {
+    private List<GradeLevel> gradeLevelList = new ArrayList<>();
+    private GradeLevel gradeLevel = new GradeLevel(1,"Grade 1");
     private GradeLevelDaoImpl gradeLevelDaoImpl = new GradeLevelDaoImpl();
     private Subject subject1, subject2, subject3, subject4, subject5;
 
@@ -18,6 +25,20 @@ public class GradeLevelTest {
         subject3 = new Subject(3,"English");
         subject4 = new Subject(4,"French");
         subject5 = new Subject(5, "Spanish");
+    }
+
+
+    @Test
+    public void testToString() throws Exception {
+        for (GradeLevel grList : gradeLevelList) {
+            assertEquals(grList.toString(), "GradeLevel{GradeId="+grList.getGradeId()+"," + " grade="+ "'"+grList.getGrade()+"'}");
+        }
+    }
+    @Test
+    public void testToStrings() throws Exception {
+
+        assertEquals(1, gradeLevel.getGradeId());
+        assertEquals("Grade 1", gradeLevel.getGrade());
     }
 
     @Test

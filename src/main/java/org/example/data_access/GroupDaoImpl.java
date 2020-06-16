@@ -34,6 +34,16 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
+    public void addSubject(Subject subject) {
+        subjects.add(subject);
+    }
+
+    @Override
+    public boolean removeSubject(Subject subject) {
+        return subjects.remove(subject);
+    }
+
+    @Override
     public boolean addStudentToGroup(Student stud) {
         //The student should be added only if (s)he is not already in the group, and the maximum number has not been reached
         if (this.students.size() < this.maxNumberOfStudents) {
@@ -43,6 +53,26 @@ public class GroupDaoImpl implements GroupDao {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int totalNumberOfStudents() {
+        return students.size();
+    }
+
+    @Override
+    public int totalNumberOfSubjects() {
+        return subjects.size();
+    }
+
+    @Override
+    public boolean checksStudent(Student student) {
+        return students.contains(student);
+    }
+
+    @Override
+    public boolean checksSubject(Subject subject) {
+        return subjects.contains(subject);
     }
 
     @Override
@@ -84,7 +114,7 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
-    public List<Student> unplaceStudents(Group group) {
+    public List<Student> unplaceStudentsFromGroup(Group group) {
         List<Student> unplaced = null;
         if (students.size() < minNumberOfStudents) {
             unplaced = new ArrayList<Student>(students);

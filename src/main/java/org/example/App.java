@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class App 
 {
+    /*
     public static List<Group> existingGroups = new ArrayList<>(); //Contains all groups available.
     public static HashMultimap<Subject, Student> unplacedStudentsBySubject = HashMultimap.create(); //A data-structure enabling a Key to point to multiple values
     public static HashMap<Student, Classes> schoolClassByStudent = new HashMap(); //To make it easier to find the class of a student without having to declare a whole field in Student, thereby interconnecting the two classes
@@ -91,6 +92,6 @@ public class App
                     + ", is unplaced for the subject " + subjectStudentEntry.getKey().getSubjectName() + " with the id " + subjectStudentEntry.getKey().getSubjectId());
         });
 
-    }
+    }*/
 
 }

@@ -1,22 +1,23 @@
 package org.example.Model;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
 
 public class Student {
     private int studentId;
     private String fullName;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String address;
     private int careGiverContactNumber;
+    private GradeLevel gradeLevel;
 
-    public Student(int studentId, String fullName, Date birthDate, String address, int careGiverContactNumber) {
+    public Student(int studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel) {
         this.studentId = studentId;
         this.fullName = fullName;
         this.birthDate = birthDate;
         this.address = address;
         this.careGiverContactNumber = careGiverContactNumber;
+        this.gradeLevel = gradeLevel;
     }
 
     public int getStudentId() {
@@ -35,11 +36,11 @@ public class Student {
         this.fullName = fullName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -57,6 +58,14 @@ public class Student {
 
     public void setCareGiverContactNumber(int careGiverContactNumber) {
         this.careGiverContactNumber = careGiverContactNumber;
+    }
+
+    public GradeLevel getGradeLevel() {
+        return gradeLevel;
+    }
+
+    public void setGradeLevel(GradeLevel gradeLevel) {
+        this.gradeLevel = gradeLevel;
     }
 
     @Override

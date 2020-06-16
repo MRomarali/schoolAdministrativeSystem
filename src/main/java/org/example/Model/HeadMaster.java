@@ -7,7 +7,7 @@ public class HeadMaster {
     private String headMasterName;
     private List<Student> studentList;
 
-    public HeadMaster(int headMasterId, String headMasterName, List<Student> studentList) {
+    public HeadMaster(int headMasterId, String headMasterName) {
         this.headMasterId = headMasterId;
         this.headMasterName = headMasterName;
         this.studentList = studentList;

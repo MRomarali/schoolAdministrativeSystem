@@ -1,19 +1,23 @@
 package org.example.Model;
 
+import org.example.data_access.GroupDaoImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
     private int groupId;
     private String groupName;
-    private List<Student> students;
-    private GradeLevel gradeLevel;
+    private GroupDaoImpl groupDaoImpl;
+    private int maxNumberOfStudents;
+    private int minNumberOfStudents;
 
-    public Group(int groupId, String groupName, List<Student> students, GradeLevel gradeLevel) {
+
+    public Group(int groupId, String groupName, int maxNumberOfStudents, int minNumberOfStudents) {
         this.groupId = groupId;
         this.groupName = groupName;
-        this.students = students;
-        this.gradeLevel = gradeLevel;
+        this.maxNumberOfStudents = maxNumberOfStudents;
+        this.minNumberOfStudents = minNumberOfStudents;
     }
 
     public int getGroupId() {
@@ -32,28 +36,28 @@ public class Group {
         this.groupName = groupName;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public GroupDaoImpl getGroupDaoImpl() {
+        return groupDaoImpl;
     }
 
-    public GradeLevel getGradeLevel() {
-        return gradeLevel;
+    public void setGroupDaoImpl(GroupDaoImpl groupDaoImpl) {
+        this.groupDaoImpl = groupDaoImpl;
     }
 
-    public void setGradeLevel(GradeLevel gradeLevel) {
-        this.gradeLevel = gradeLevel;
+    public int getMaxNumberOfStudents() {
+        return maxNumberOfStudents;
     }
 
-    public int totalNumberOfStudents() {
-        return students.size();
-    }
-    public boolean checksStudent(Student student) {
-        return students.contains(student);
+    public void setMaxNumberOfStudents(int maxNumberOfStudents) {
+        this.maxNumberOfStudents = maxNumberOfStudents;
     }
 
+    public int getMinNumberOfStudents() {
+        return minNumberOfStudents;
+    }
 
-    public List<Student> getRegisteredStudents() {
-        return students;
+    public void setMinNumberOfStudents(int minNumberOfStudents) {
+        this.minNumberOfStudents = minNumberOfStudents;
     }
 
     @Override
@@ -61,8 +65,6 @@ public class Group {
         final StringBuilder sb = new StringBuilder("Group{");
         sb.append("groupId=").append(groupId);
         sb.append(", groupName='").append(groupName).append('\'');
-        sb.append(", students=").append(students);
-        sb.append(", gradeLevel=").append(gradeLevel);
         sb.append('}');
         return sb.toString();
     }

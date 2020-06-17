@@ -23,22 +23,28 @@ public class StudentTest {
 
     @Before
     public void setUp() throws Exception {
+        studentList = new ArrayList<Student>();
+        studentList.add(new Student(1, "Omar",LocalDate.parse("2013-01-27"), "Storgatan 12",071234567,new GradeLevel(1, "Grade 1")));
+        studentList.add(new Student(2, "Yasmin",LocalDate.parse("2012-01-27"), "Storgatan 13",071234567,new GradeLevel(2, "Grade 2")));
+        studentList.add(new Student(3, "Ahmed",LocalDate.parse("2011-01-27"), "Storgatan 14",071234567,new GradeLevel(3, "Grade 3")));
+        studentList.add(new Student(4, "Rahma",LocalDate.parse("2010-01-27"), "Storgatan 15",071234567,new GradeLevel(4, "Grade 4")));
+
     }
 
     @Test
-    public void testToString() throws Exception {
+    public void testToStrings() throws Exception {
         for (Student student : studentList) {
             assertEquals(student.toString(), "Student{id="+student.getStudentId()+","
-                    + " fullName="+ "'"+student.getFullName()+","
-                    + " birthDate="+ "'"+student.getBirthDate()+","
-                    + " address="+ "'"+student.getAddress()+","
-                    + " careGiverContactNumber="+ "'"+student.getCareGiverContactNumber()+"'}");
+                    + " fullName="+ "'"+student.getFullName()+"',"
+                    + " birthDate="+ ""+student.getBirthDate()+","
+                    + " address="+ "'"+student.getAddress()+"',"
+                    + " careGiverContactNumber="+ ""+student.getCareGiverContactNumber()+"}");
 
         }
     }
 
     @Test
-    public void testToStrings() throws Exception {
+    public void testToString() throws Exception {
 
         assertEquals(1, student1.getStudentId());
         assertEquals("Omar Ali", student1.getFullName());

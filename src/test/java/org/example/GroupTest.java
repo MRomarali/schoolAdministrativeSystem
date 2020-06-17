@@ -15,14 +15,14 @@ import static org.junit.Assert.assertFalse;
 public class GroupTest {
     private List<Group> groupList = new ArrayList<>();
     private GroupDaoImpl groupDaoImpl = new GroupDaoImpl();
-    private Group group1 = new Group(1,"Spanish");
+    private Group sva = new Group(1,"Swedish 2");
     private Subject subject1, subject2, subject3, subject4, subject5;
     private Student student1, student2, student3, student4, student5, student6, student7;
 
     @Before
     public void setUp() throws Exception {
 
-        group1 = new Group(1, "group1");
+        sva = new Group(1, "Swedish 2");
         subject1 = new Subject(1, "Math");
         subject2 = new Subject(2, "Swedish");
         subject3 = new Subject(3, "English");
@@ -49,6 +49,9 @@ public class GroupTest {
         groupDaoImpl.addStudentToGroup(student4);
         groupDaoImpl.addStudentToGroup(student5);
         groupDaoImpl.addStudentToGroup(student6);
+
+        groupList = new ArrayList<Group>();
+        groupList.add(new Group(1, "French"));
     }
     @Test
     public void addSubject() throws Exception {
@@ -90,7 +93,7 @@ public class GroupTest {
     @Test
     public void testToStrings() throws Exception {
 
-        assertEquals(1, group1.getGroupId());
-        assertEquals("group1", group1.getGroupName());
+        assertEquals(1, sva.getGroupId());
+        assertEquals("Swedish 2", sva.getGroupName());
     }
 }

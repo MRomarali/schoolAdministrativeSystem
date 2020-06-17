@@ -25,6 +25,9 @@ public class GradeLevelTest {
         subject3 = new Subject(3,"English");
         subject4 = new Subject(4,"French");
         subject5 = new Subject(5, "Spanish");
+
+        gradeLevelList = new ArrayList<GradeLevel>();
+        gradeLevelList.add(new GradeLevel(1, "Grade 1"));
     }
 
 

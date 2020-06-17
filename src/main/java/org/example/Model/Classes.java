@@ -8,10 +8,10 @@ public class Classes {
     private String classesName;
     private List<Student> students;
 
-    public Classes(int classesId, String classesName) {
+    public Classes(int classesId, String classesName, List<Student> students) {
         this.classesId = classesId;
         this.classesName = classesName;
-        this.students = students = new ArrayList<>();
+        this.students = students;
     }
 
     public int getClassesId() {
@@ -20,6 +20,10 @@ public class Classes {
 
     public String getClassesName() {
         return classesName;
+    }
+
+    public List<Student> getStudents() {
+        return students;
     }
 
     @Override

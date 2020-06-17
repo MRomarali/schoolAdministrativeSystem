@@ -23,6 +23,9 @@ public class HeadMasterTest {
     @Before
     public void setUp() throws Exception {
         student1 = new Student(1, "Omar", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5"));
+        headMasters = new ArrayList<HeadMaster>();
+        headMasters.add(new HeadMaster(1, "Sam"));
+
     }
 
     @Test

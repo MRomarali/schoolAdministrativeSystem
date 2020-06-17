@@ -10,9 +10,9 @@ public class GroupDaoImpl implements GroupDao {
     private List<Student> students = new ArrayList<>();
     private List<Subject> subjects = new ArrayList<>();
     private List<Classes> classesList = new ArrayList<>();
+
+
     private boolean lessThan = false;
-    private int maxNumberOfStudents;
-    private int minNumberOfStudents;
     private boolean exceedsMinimumNumber = false;
 
 
@@ -76,15 +76,22 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
-    public boolean addStudentToGroup(Student stud) {
-        //The student should be added only if (s)he is not already in the group, and the maximum number has not been reached
-        if (this.students.size() < this.maxNumberOfStudents) {
-            this.students.add(stud);
-            lessThan = (this.students.size() >= minNumberOfStudents) ? true : false; //Once the minimum number of the students is exceeded, it turns to true
+    public boolean addStudentToGroup(int id, Student student){
+        Group group = findById(id);
+        List<Student> students = group.getStudents();
+        if (students.size() < group.getMax_students()) {
+            students.add(student);
+            lessThan = students.size() >= group.getMin_students(); //Once the minimum number of the students is exceeded, it turns to true
             return true;
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void createGroup(int id, String groupName, GradeLevel level, int maxStudents, int minStudents){
+        Group  group = new Group(id, groupName, level, maxStudents , minStudents);
+        groupList.add(group);
     }
 
     @Override

@@ -2,6 +2,7 @@ package org.example.data_access;
 
 import org.example.Model.Classes;
 import org.example.Model.GradeLevel;
+import org.example.Model.HeadMaster;
 import org.example.Model.Subject;
 
 import java.util.ArrayList;
@@ -11,6 +12,12 @@ public class GradeLevelDaoImpl implements GradeLevelDao {
     private static List<GradeLevel> gradeLevels = new ArrayList<>();
     private static List<Subject> commonSubjectsList = new ArrayList<>();
     private static List<Subject> individualSubjectChoiceList = new ArrayList<>();
+
+    @Override
+    public void createGradeLevel(int gradeId, String grade, List<Subject> gradeLevelSubjects){
+        GradeLevel gradeLevel = new GradeLevel(gradeId, grade, gradeLevelSubjects);
+        gradeLevels.add(gradeLevel);
+    }
 
     @Override
     public GradeLevel findByName(String name) {

@@ -1,9 +1,6 @@
 package org.example.data_access;
 
-import org.example.Model.GradeLevel;
-import org.example.Model.HeadMaster;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,6 +9,12 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao {
     private static List<Student> students = new ArrayList<>();
     private static List<Subject> specifiedSubject = new ArrayList<>();
+
+    @Override
+    public void createStudent(String studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel){
+        Student student = new Student(studentId, fullName, birthDate, address , careGiverContactNumber, gradeLevel);
+        students.add(student);
+    }
 
     @Override
     public Student findByName(String name) {

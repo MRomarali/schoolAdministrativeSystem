@@ -3,6 +3,7 @@ package org.example.data_access;
 import org.example.Model.Group;
 import org.example.Model.HeadMaster;
 import org.example.Model.Student;
+import org.example.Model.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,13 @@ import java.util.List;
 public class HeadMasterDaoImpl implements HeadMasterDao {
     private List<Student> students = new ArrayList<>();
     private List<HeadMaster> headMasterList = new ArrayList<>();
+
+    @Override
+    public void createHeadMaster(int headMasterId, String headMasterName){
+        HeadMaster headMaster = new HeadMaster(headMasterId, headMasterName);
+        headMasterList.add(headMaster);
+    }
+
 
     @Override
     public HeadMaster findByName(String name) {

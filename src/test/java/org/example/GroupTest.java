@@ -21,40 +21,6 @@ public class GroupTest {
     private Subject subject1, subject2, subject3, subject4, subject5;
     private Student student1, student2, student3, student4, student5, student6, student7;
 
-    @Before
-    public void setUp() throws Exception {
-
-        sva = new Group(1,"Swedish 2", gradeLevel,6,2);
-        subject1 = new Subject(1, "Math");
-        subject2 = new Subject(2, "Swedish");
-        subject3 = new Subject(3, "English");
-        subject4 = new Subject(4, "French");
-        subject5 = new Subject(5, "Hindi");
-
-        student1 = new Student("1", "Omar",LocalDate.parse("2013-01-27"), "Storgatan 12",071234567,new GradeLevel(1,"Grade 1", subjectList));
-        student2 = new Student("2", "Yasmin",LocalDate.parse("2012-01-27"), "Storgatan 13",071234567,new GradeLevel(2, "Grade 2", subjectList));
-        student3 = new Student("3", "Ahmed",LocalDate.parse("2011-01-27"), "Storgatan 14",071234567,new GradeLevel(3, "Grade 3", subjectList));
-        student4 = new Student("4", "Rahma",LocalDate.parse("2010-01-27"), "Storgatan 15",071234567,new GradeLevel(4, "Grade 4", subjectList));
-        student5 = new Student("5", "Kowsar",LocalDate.parse("2009-01-27"), "Storgatan 16",071234567,new GradeLevel(5, "Grade 5", subjectList));
-        student6 = new Student("6", "Abdullahi",LocalDate.parse("2008-01-27"), "Storgatan 17",071234567,new GradeLevel(6, "Grade 6", subjectList));
-        student7 = new Student("7", "Abdirahman",LocalDate.parse("2007-01-27"), "Storgatan 18",071234567,new GradeLevel(7, "Grade 7",subjectList));
-
-        groupDaoImpl.addSubject(subject1);
-        groupDaoImpl.addSubject(subject2);
-        groupDaoImpl.addSubject(subject3);
-        groupDaoImpl.addSubject(subject4);
-        groupDaoImpl.addSubject(subject5);
-
-        groupDaoImpl.addStudentToGroup(student1);
-        groupDaoImpl.addStudentToGroup(student2);
-        groupDaoImpl.addStudentToGroup(student3);
-        groupDaoImpl.addStudentToGroup(student4);
-        groupDaoImpl.addStudentToGroup(student5);
-        groupDaoImpl.addStudentToGroup(student6);
-
-        groupList = new ArrayList<Group>();
-        groupList.add(new Group(1,"Swedish 2", gradeLevel,6,2));
-    }
 
     @Test
     public void groupId() throws Exception {
@@ -73,34 +39,50 @@ public class GroupTest {
 
     @Test
     public void addSubject() throws Exception {
-        assertEquals(groupDaoImpl.totalNumberOfSubjects(), 5);
+        groupDaoImpl.addSubject(subject1);
+        groupDaoImpl.addSubject(subject2);
+        assertEquals(groupDaoImpl.totalNumberOfSubjects(), 2);
+
     }
 
     @Test
     public void removeSubject() throws Exception {
-
+        subject1 = new Subject(1, "Math");
+        groupDaoImpl.addSubject(subject1);
         groupDaoImpl.removeSubject(subject1);
         assertFalse(groupDaoImpl.checksSubject(subject1));
-        assertEquals(groupDaoImpl.totalNumberOfSubjects(), 4);
+        assertEquals(groupDaoImpl.totalNumberOfSubjects(), 0);
     }
 
     @Test
     public void getGroupsBySubject() throws Exception{
 
-        //assertEquals(groupDaoImpl.getGroupsBySubject(subject1), 1);
-
     }
 
     @Test
     public void removeStudent() throws Exception {
-
+        student1 = new Student("1","Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        student2 = new Student("2","Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        groupDaoImpl.addStudent(student1);
+        groupDaoImpl.addStudent(student2);
         groupDaoImpl.removeStudent(student1);
         assertFalse(groupDaoImpl.checksStudent(student1));
-        assertEquals(groupDaoImpl.totalNumberOfSubjects(), 5);
+        assertEquals(1, groupDaoImpl.totalNumberOfSubjects());
+    }
+
+    @Test
+    public void addStudentToGroupSucess() {
+        groupDaoImpl.createGroup(1, "A", gradeLevel, 5,2);
+        groupDaoImpl.addStudentToGroup(1,student1);
+        assertEquals(groupDaoImpl.findById(1).getStudents().size(),1);
     }
 
     @Test
     public void unplaceStudents() throws Exception {
+        student1 = new Student("1", "Omar",LocalDate.parse("2013-01-27"), "Storgatan 12",071234567,new GradeLevel(1,"Grade 1", subjectList));
+        student2 = new Student("2", "Yasmin",LocalDate.parse("2012-01-27"), "Storgatan 13",071234567,new GradeLevel(2, "Grade 2", subjectList));
+        student3 = new Student("3", "Ahmed",LocalDate.parse("2011-01-27"), "Storgatan 14",071234567,new GradeLevel(3, "Grade 3", subjectList));
+
         groupDaoImpl.addStudent(student1);
         groupDaoImpl.addStudent(student2);
         groupDaoImpl.addStudent(student3);

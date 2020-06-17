@@ -50,26 +50,27 @@ public class StudentTest {
 
     @Test
     public void studentId() throws Exception {
-
+        assertEquals(1, studentDao.findById(1));
     }
 
     @Test
     public void studentFullName() throws Exception {
-
+        assertEquals(1, studentDao.findByName(""));
     }
 
     @Test
     public void birthDate() throws Exception {
-
+        assertEquals(1, studentDao.findByDate(LocalDate.parse("")));
     }
 
     @Test
     public void address() throws Exception {
-
+        assertEquals(1, studentDao.findByAddress(""));
     }
 
     @Test
     public void careGiverContactNumber() throws Exception {
+        assertEquals(1, studentDao.findByCarGiverContactNumber(1));
 
     }
 

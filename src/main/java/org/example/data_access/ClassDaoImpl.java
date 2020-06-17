@@ -1,9 +1,6 @@
 package org.example.data_access;
 
-import org.example.Model.Classes;
-import org.example.Model.Group;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +8,12 @@ import java.util.List;
 public class ClassDaoImpl implements ClassDao {
     private static List<Classes> classesList = new ArrayList<>();
     private static List<Student> students = new ArrayList<>();
+
+    @Override
+    public void createClasses(int classesId, String classesName, List<Student> students){
+        Classes classes = new Classes(classesId, classesName, students);
+        classesList.add(classes);
+    }
 
     @Override
     public Classes findByName(String name) {

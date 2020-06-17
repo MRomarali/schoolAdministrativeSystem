@@ -39,28 +39,18 @@ public class GradeLevelTest {
 
     @Test
     public void gradeId() throws Exception {
-
+        assertEquals(1, gradeLevelDaoImpl.findById(1).getGradeId());
     }
 
     @Test
     public void gradeName() throws Exception {
-
-    }
-
-    @Test
-    public void gradeLevelSubjects() throws Exception{
-
+        assertEquals("Grade 1", gradeLevelDaoImpl.findByName("Grade 1"));
     }
 
     @Test
     public void addCommonSubject() throws Exception {
         assertEquals(subject1, gradeLevelDaoImpl.addCommonSubjects(subject1));
     }
-
-    /*@Test
-    public void getTotalSubjects() throws Exception {
-        assertEquals(subject1, gradeLevelDaoImpl.getTotalSubjects());
-    }*/
 
     @Test
     public void addIndividualChosenSubject() throws Exception {

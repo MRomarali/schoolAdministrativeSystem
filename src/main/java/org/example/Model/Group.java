@@ -81,6 +81,15 @@ public class Group {
         return false;
     }
 
+    public List<Student> getStudents() {
+        return studentsList;
+    }
+
+    public List<Subject> getSubjects() {
+        return subjectsList;
+    }
+
+
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }

@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface SubjectDao {
+    void createSubject(int subjectId, String subjectName);
+
     Subject findByName(String name);
     Subject findById(int id);
     List<Subject> findAll();

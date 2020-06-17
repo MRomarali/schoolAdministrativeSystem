@@ -30,7 +30,6 @@ public class HeadMasterTest {
     public void testToString() throws Exception {
         for (HeadMaster headMaster : headMasters) {
             assertEquals(headMaster.toString(), "HeadMaster{headMasterId="+headMaster.getHeadMasterId()+"," + " headMasterName="+ "'"+headMaster.getHeadMasterName()+"'}");
-
         }
     }
     @Test
@@ -42,12 +41,12 @@ public class HeadMasterTest {
 
     @Test
     public void headMasterId() throws Exception {
-
+        assertEquals(1, headMasterDaoImpl.findById(1));
     }
 
     @Test
     public void headMasterName() throws Exception {
-
+        assertEquals(1, headMasterDaoImpl.findById(1));
     }
 
     @Test

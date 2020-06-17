@@ -1,9 +1,11 @@
 package org.example.data_access;
 
+import org.example.Model.GradeLevel;
 import org.example.Model.Group;
 import org.example.Model.Student;
 import org.example.Model.Subject;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,11 @@ public class SubjectDaoImpl implements SubjectDao {
     private static List<Group> groupList = new ArrayList<>();
     private List<Subject> subjects = new ArrayList<>();
 
+    @Override
+    public void createSubject(int subjectId, String subjectName){
+        Subject subject = new Subject(subjectId, subjectName);
+        subjects.add(subject);
+    }
 
     @Override
     public Subject findByName(String name) {

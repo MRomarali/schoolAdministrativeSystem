@@ -5,6 +5,7 @@ import org.example.Model.GradeLevel;
 import org.example.Model.Student;
 import org.example.Model.Subject;
 import org.example.data_access.ClassDaoImpl;
+import org.example.data_access.GroupDaoImpl;
 import org.example.data_access.StudentDaoImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class ClassesTest {
     private Classes classes = new Classes(1,"1A", studentList);
     private Student student1 = new Student("1", "Omar Ali", LocalDate.parse("2008-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
     private Student student2 = new Student("2", "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3", subjectList));
-
+    private GroupDaoImpl groupDaoImpl = new GroupDaoImpl();
     @Before
     public void setUp() throws Exception{
     }
@@ -47,11 +48,14 @@ public class ClassesTest {
     @Test
     public void classesId() throws Exception {
 
+        assertEquals(classDao.findById(1).getClassesId(), student1);
+
     }
 
     @Test
     public void classesName() throws Exception {
 
+        assertEquals(classDao.findByName("Omar").getClassesName(), student1);
     }
 
     @Test

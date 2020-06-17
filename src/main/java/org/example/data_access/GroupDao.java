@@ -1,5 +1,6 @@
 package org.example.data_access;
 
+import org.example.Model.GradeLevel;
 import org.example.Model.Group;
 import org.example.Model.Student;
 import org.example.Model.Subject;
@@ -16,7 +17,10 @@ public interface GroupDao {
     void addStudent(Student student);
     boolean removeStudent(Student student);
     boolean removeSubject(Subject subject);
-    boolean addStudentToGroup(Student stud);
+    boolean addStudentToGroup(int id, Student student);
+
+    void createGroup(int id, String groupName, GradeLevel level, int maxStudents, int minStudents);
+
     int totalNumberOfStudents();
     int totalNumberOfSubjects();
     boolean checksStudent(Student student);

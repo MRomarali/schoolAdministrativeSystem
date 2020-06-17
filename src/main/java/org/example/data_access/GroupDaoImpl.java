@@ -1,9 +1,6 @@
 package org.example.data_access;
 
-import org.example.Model.Classes;
-import org.example.Model.Group;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +13,34 @@ public class GroupDaoImpl implements GroupDao {
     private boolean lessThan = false;
     private int maxNumberOfStudents;
     private int minNumberOfStudents;
+
+    @Override
+    public Group findByName(String name) {
+        for (Group group:groupList) {
+            if (group.getGroupName().equalsIgnoreCase(name)) {
+                return group;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Group findById(int id) {
+        for (Group group:groupList) {
+            if (group.getGroupId() == id) {
+                return group;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Group> findAll() {
+        for (Group group:groupList) {
+            return groupList;
+        }
+        return null;
+    }
 
     @Override
     public void addSubject(Subject subject) {

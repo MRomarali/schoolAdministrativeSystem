@@ -13,6 +13,34 @@ public class ClassDaoImpl implements ClassDao {
     private static List<Student> students = new ArrayList<>();
 
     @Override
+    public Classes findByName(String name) {
+        for (Classes classes:classesList) {
+            if (classes.getClassesName().equalsIgnoreCase(name)) {
+                return classes;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Classes findById(int id) {
+        for (Classes classes:classesList) {
+            if (classes.getClassesId() == id) {
+                return classes;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Classes> findAll() {
+        for (Classes classes:classesList) {
+            return classesList;
+        }
+        return null;
+    }
+
+    @Override
     public Student register(Student student) {
         if(!students.contains(student))
             students.add(student);

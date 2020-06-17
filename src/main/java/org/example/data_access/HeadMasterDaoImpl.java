@@ -1,5 +1,7 @@
 package org.example.data_access;
 
+import org.example.Model.Group;
+import org.example.Model.HeadMaster;
 import org.example.Model.Student;
 
 import java.util.ArrayList;
@@ -7,6 +9,35 @@ import java.util.List;
 
 public class HeadMasterDaoImpl implements HeadMasterDao {
     private List<Student> students = new ArrayList<>();
+    private List<HeadMaster> headMasterList = new ArrayList<>();
+
+    @Override
+    public HeadMaster findByName(String name) {
+        for (HeadMaster headMaster:headMasterList) {
+            if (headMaster.getHeadMasterName().equalsIgnoreCase(name)) {
+                return headMaster;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public HeadMaster findById(int id) {
+        for (HeadMaster headMaster:headMasterList) {
+            if (headMaster.getHeadMasterId() == id) {
+                return headMaster;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<HeadMaster> findAll() {
+        for (HeadMaster headMaster:headMasterList) {
+            return headMasterList;
+        }
+        return null;
+    }
 
     @Override
     public Student addStudent(Student student) {

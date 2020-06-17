@@ -8,6 +8,9 @@ import org.example.Model.Subject;
 import java.util.List;
 
 public interface ClassDao {
+    Classes findByName(String name);
+    Classes findById(int id);
+    List<Classes>findAll();
     Student register(Student student);
     int totalNumberOfStudents();
     boolean studentsExists(Student student);

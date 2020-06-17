@@ -8,6 +8,9 @@ import org.example.Model.Subject;
 import java.util.List;
 
 public interface GroupDao {
+    Group findByName(String name);
+    Group findById(int id);
+    List<Group>findAll();
     void addSubject(Subject subject);
     void addStudent(Student student);
     boolean removeStudent(Student student);

@@ -34,6 +34,16 @@ public class SubjectTest {
     }
 
     @Test
+    public void subjectId() throws Exception {
+
+    }
+
+    @Test
+    public void subjectName() throws Exception {
+
+    }
+
+    @Test
     public void saveSubject() throws Exception {
         subjectDao.saveSubject(subject1);
         subjectDao.saveSubject(subject2);

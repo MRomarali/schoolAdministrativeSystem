@@ -54,6 +54,30 @@ public class StudentTest {
         assertEquals(0731011010, student1.getCareGiverContactNumber());
     }
 
+    @Test
+    public void studentId() throws Exception {
+
+    }
+
+    @Test
+    public void studentFullName() throws Exception {
+
+    }
+
+    @Test
+    public void birthDate() throws Exception {
+
+    }
+
+    @Test
+    public void address() throws Exception {
+
+    }
+
+    @Test
+    public void careGiverContactNumber() throws Exception {
+
+    }
 
     @Test
     public void saveStudent() throws Exception {

@@ -44,6 +44,16 @@ public class HeadMasterTest {
     }
 
     @Test
+    public void headMasterId() throws Exception {
+
+    }
+
+    @Test
+    public void headMasterName() throws Exception {
+
+    }
+
+    @Test
     public void addStudent() throws Exception {
         assertEquals(student1, headMasterDaoImpl.addStudent(student1));
     }

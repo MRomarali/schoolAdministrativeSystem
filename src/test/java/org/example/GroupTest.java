@@ -55,6 +55,22 @@ public class GroupTest {
         groupList = new ArrayList<Group>();
         groupList.add(new Group(1,"Swedish 2", gradeLevel,6,2));
     }
+
+    @Test
+    public void groupId() throws Exception {
+
+    }
+
+    @Test
+    public void groupName() throws Exception {
+
+    }
+
+    @Test
+    public void groupLevel() throws Exception{
+
+    }
+
     @Test
     public void addSubject() throws Exception {
         assertEquals(groupDaoImpl.totalNumberOfSubjects(), 5);

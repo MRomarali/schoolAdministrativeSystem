@@ -45,12 +45,12 @@ public class ClassesTest {
     }
 
     @Test
-    public void getClassesId() throws Exception {
+    public void classesId() throws Exception {
 
     }
 
     @Test
-    public void getClassesName() throws Exception {
+    public void classesName() throws Exception {
 
     }
 

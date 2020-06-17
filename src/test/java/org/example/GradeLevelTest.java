@@ -46,6 +46,21 @@ public class GradeLevelTest {
     }
 
     @Test
+    public void gradeId() throws Exception {
+
+    }
+
+    @Test
+    public void gradeName() throws Exception {
+
+    }
+
+    @Test
+    public void gradeLevelSubjects() throws Exception{
+
+    }
+
+    @Test
     public void addCommonSubject() throws Exception {
         assertEquals(subject1, gradeLevelDaoImpl.addCommonSubjects(subject1));
     }

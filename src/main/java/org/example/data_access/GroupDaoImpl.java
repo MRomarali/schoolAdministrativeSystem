@@ -13,6 +13,8 @@ public class GroupDaoImpl implements GroupDao {
     private boolean lessThan = false;
     private int maxNumberOfStudents;
     private int minNumberOfStudents;
+    private boolean exceedsMinimumNumber = false;
+
 
     @Override
     public Group findByName(String name) {
@@ -41,6 +43,17 @@ public class GroupDaoImpl implements GroupDao {
         }
         return null;
     }
+
+    @Override
+    public List<Subject> getSubjectsList() {
+        return subjects;
+    }
+
+    @Override
+    public List<Student> getStudentsList() {
+        return students;
+    }
+
 
     @Override
     public void addSubject(Subject subject) {
@@ -107,13 +120,7 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     @Override
-    public List<Group> getGroupsBySubject(Subject subject){
-        List<Group> groups = new ArrayList<>();
-        for (Group gr : groupList) {
-            if (gr.getSubjectsList().contains(subject)) {
-                groups.add(gr);
-            }
-        }
-        return groups;
+    public boolean isExceedsMinimumNumber() {
+        return exceedsMinimumNumber;
     }
 }

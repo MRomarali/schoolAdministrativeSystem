@@ -21,14 +21,6 @@ public class GradeLevelTest {
 
     @Before
     public void setUp() throws Exception {
-        subject1 = new Subject(1,"Math");
-        subject2 = new Subject(2,"Swedish");
-        subject3 = new Subject(3,"English");
-        subject4 = new Subject(4,"French");
-        subject5 = new Subject(5, "Spanish");
-
-        gradeLevelList = new ArrayList<GradeLevel>();
-        gradeLevelList.add(new GradeLevel(1, "Grade 1", subjectList));
     }
 
 

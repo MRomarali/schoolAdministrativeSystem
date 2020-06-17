@@ -26,13 +26,13 @@ public class ClassesTest {
 
     @Before
     public void setUp() throws Exception{
-        classesList = new ArrayList<Classes>();
-        classesList.add(new Classes(1, "1A", studentList));
-
     }
 
     @Test
     public void testToString() throws Exception {
+        classesList = new ArrayList<Classes>();
+        classesList.add(new Classes(1, "1A", studentList));
+
         for (Classes classes : classesList) {
             assertEquals(classes.toString(), "Classes{classesId="+classes.getClassesId()+"," + " classesName="+ "'"+classes.getClassesName()+ "', students="+classes.getStudents()+"}");
         }

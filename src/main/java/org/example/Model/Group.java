@@ -32,10 +32,6 @@ public class Group {
         return groupName;
     }
 
-    public List<Subject> getSubjectsList() {
-        return subjectsList;
-    }
-
     public GradeLevel getGradeLevel() {
         return gradeLevel;
     }
@@ -72,10 +68,6 @@ public class Group {
         this.max_students = max_students;
     }
 
-    public boolean isExceedsMinimumNumber() {
-        return exceedsMinimumNumber;
-    }
-
     public void setExceedsMinimumNumber(boolean exceedsMinimumNumber) {
         this.exceedsMinimumNumber = exceedsMinimumNumber;
     }
@@ -99,10 +91,6 @@ public class Group {
 
     public void setStudentsList(List<Student> studentsList) {
         this.studentsList = studentsList;
-    }
-
-    public List<Student> getStudentsList() {
-        return studentsList;
     }
 
     public boolean addStudentToGroup(Student st) {

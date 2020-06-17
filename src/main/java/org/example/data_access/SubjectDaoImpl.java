@@ -1,5 +1,6 @@
 package org.example.data_access;
 
+import org.example.Model.Group;
 import org.example.Model.Student;
 import org.example.Model.Subject;
 
@@ -8,6 +9,9 @@ import java.util.List;
 
 public class SubjectDaoImpl implements SubjectDao {
     private static List<Subject> subjectList = new ArrayList<>();
+    private static List<Group> groupList = new ArrayList<>();
+    private List<Subject> subjects = new ArrayList<>();
+
 
     @Override
     public Subject findByName(String name) {
@@ -60,5 +64,22 @@ public class SubjectDaoImpl implements SubjectDao {
     @Override
     public boolean removeSubject(Subject subject) {
         return false;
+    }
+
+    @Override
+    public List<Group> getGroupsBySubject(Subject subject) {
+        List<Group> groups = new ArrayList<>();
+        for (Group groupsBySubject : groupList) {
+            if (getSubjectsList().contains(subject)) {
+                groups.add(groupsBySubject);
+            }
+        }
+        return groups;
+
+    }
+
+    @Override
+    public List<Subject> getSubjectsList() {
+        return subjects;
     }
 }

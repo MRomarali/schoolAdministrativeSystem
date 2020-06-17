@@ -1,5 +1,6 @@
 package org.example.data_access;
 
+import org.example.Model.Group;
 import org.example.Model.Student;
 import org.example.Model.Subject;
 
@@ -14,4 +15,6 @@ public interface SubjectDao {
     boolean subjectsExists(Subject subject);
     int totalNumberOfStudents();
     boolean removeSubject(Subject subject);
+    List<Group> getGroupsBySubject(Subject subject);
+    List<Subject> getSubjectsList();
 }

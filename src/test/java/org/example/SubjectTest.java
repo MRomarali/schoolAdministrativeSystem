@@ -18,11 +18,6 @@ public class SubjectTest {
 
     @Before
     public void setUp() throws Exception {
-        subjectList = new ArrayList<Subject>();
-        subjectList.add(new Subject(1,"Math"));
-        subjectList.add(new Subject(2,"Swedish"));
-        subjectList.add(new Subject(3,"English"));
-        subjectList.add(new Subject(4,"French"));
     }
 
     @Test

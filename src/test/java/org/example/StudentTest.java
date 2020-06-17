@@ -24,12 +24,6 @@ public class StudentTest {
 
     @Before
     public void setUp() throws Exception {
-        studentList = new ArrayList<Student>();
-        studentList.add(new Student("1", "Omar",LocalDate.parse("2013-01-27"), "Storgatan 12",071234567,new GradeLevel(1, "Grade 1", subjectList)));
-        studentList.add(new Student("2", "Yasmin",LocalDate.parse("2012-01-27"), "Storgatan 13",071234567,new GradeLevel(2, "Grade 2", subjectList)));
-        studentList.add(new Student("3", "Ahmed",LocalDate.parse("2011-01-27"), "Storgatan 14",071234567,new GradeLevel(3, "Grade 3", subjectList)));
-        studentList.add(new Student("4", "Rahma",LocalDate.parse("2010-01-27"), "Storgatan 15",071234567,new GradeLevel(4, "Grade 4", subjectList)));
-
     }
 
     @Test

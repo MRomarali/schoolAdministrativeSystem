@@ -17,12 +17,13 @@ import static org.junit.Assert.assertEquals;
 public class HeadMasterTest {
     private HeadMaster hm = new HeadMaster(1,"sam");
     private List<HeadMaster> headMasters = new ArrayList<>();
+    private List<Subject> subjectList = new ArrayList<>();
     private HeadMasterDaoImpl headMasterDaoImpl = new HeadMasterDaoImpl();
     private Student student1;
 
     @Before
     public void setUp() throws Exception {
-        student1 = new Student(1, "Omar", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5"));
+        student1 = new Student("1", "Omar", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
         headMasters = new ArrayList<HeadMaster>();
         headMasters.add(new HeadMaster(1, "Sam"));
 

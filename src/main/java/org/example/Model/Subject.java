@@ -20,6 +20,13 @@ public class Subject {
         return subjectName;
     }
 
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
 
     @Override
     public String toString() {

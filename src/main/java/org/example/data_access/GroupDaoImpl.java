@@ -11,8 +11,8 @@ import java.util.List;
 public class GroupDaoImpl implements GroupDao {
     private static List<Group> groupList = new ArrayList<>();
     private List<Student> students = new ArrayList<>();
-    private List<Classes> classes = new ArrayList<>();
     private List<Subject> subjects = new ArrayList<>();
+    private List<Classes> classesList = new ArrayList<>();
     private boolean lessThan = false;
     private int maxNumberOfStudents;
     private int minNumberOfStudents;
@@ -79,5 +79,16 @@ public class GroupDaoImpl implements GroupDao {
     @Override
     public void informHeadMaster(Student student) {
         System.out.println(" Hi Headmaster! Note that: " + student.getFullName() + " With student id: " + student.getStudentId() + " has been unplaced");
+    }
+
+    @Override
+    public List<Group> getGroupsBySubject(Subject subject){
+        List<Group> groups = new ArrayList<>();
+        for (Group gr : groupList) {
+            if (gr.getSubjectsList().contains(subject)) {
+                groups.add(gr);
+            }
+        }
+        return groups;
     }
 }

@@ -14,7 +14,8 @@ import static org.junit.Assert.assertEquals;
 
 public class GradeLevelTest {
     private List<GradeLevel> gradeLevelList = new ArrayList<>();
-    private GradeLevel gradeLevel = new GradeLevel(1,"Grade 1");
+    private List<Subject> subjectList = new ArrayList<>();
+    private GradeLevel gradeLevel = new GradeLevel(1,"Grade 1", subjectList);
     private GradeLevelDaoImpl gradeLevelDaoImpl = new GradeLevelDaoImpl();
     private Subject subject1, subject2, subject3, subject4, subject5;
 
@@ -27,7 +28,7 @@ public class GradeLevelTest {
         subject5 = new Subject(5, "Spanish");
 
         gradeLevelList = new ArrayList<GradeLevel>();
-        gradeLevelList.add(new GradeLevel(1, "Grade 1"));
+        gradeLevelList.add(new GradeLevel(1, "Grade 1", subjectList));
     }
 
 

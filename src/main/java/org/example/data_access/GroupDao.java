@@ -19,4 +19,5 @@ public interface GroupDao {
     boolean checksSubject(Subject subject);
     boolean unplaceStudent(Student student);
     void informHeadMaster(Student student);
+    List<Group> getGroupsBySubject(Subject subject);
 }

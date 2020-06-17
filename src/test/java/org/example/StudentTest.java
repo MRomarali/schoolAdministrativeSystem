@@ -16,18 +16,19 @@ import static org.junit.Assert.assertFalse;
 
 public class StudentTest {
     private List<Student> studentList = new ArrayList<>();
+    private List<Subject> subjectList = new ArrayList<>();
     StudentDaoImpl studentDao = new StudentDaoImpl();
-    GradeLevel gradeLevel = new GradeLevel(5, "Grade 5");
-    private Student student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5"));
-    private Student student2 = new Student(2, "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3"));
+    GradeLevel gradeLevel = new GradeLevel(5, "Grade 5", subjectList);
+    private Student student1 = new Student("1","Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+    private Student student2 = new Student("2", "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3", subjectList));
 
     @Before
     public void setUp() throws Exception {
         studentList = new ArrayList<Student>();
-        studentList.add(new Student(1, "Omar",LocalDate.parse("2013-01-27"), "Storgatan 12",071234567,new GradeLevel(1, "Grade 1")));
-        studentList.add(new Student(2, "Yasmin",LocalDate.parse("2012-01-27"), "Storgatan 13",071234567,new GradeLevel(2, "Grade 2")));
-        studentList.add(new Student(3, "Ahmed",LocalDate.parse("2011-01-27"), "Storgatan 14",071234567,new GradeLevel(3, "Grade 3")));
-        studentList.add(new Student(4, "Rahma",LocalDate.parse("2010-01-27"), "Storgatan 15",071234567,new GradeLevel(4, "Grade 4")));
+        studentList.add(new Student("1", "Omar",LocalDate.parse("2013-01-27"), "Storgatan 12",071234567,new GradeLevel(1, "Grade 1", subjectList)));
+        studentList.add(new Student("2", "Yasmin",LocalDate.parse("2012-01-27"), "Storgatan 13",071234567,new GradeLevel(2, "Grade 2", subjectList)));
+        studentList.add(new Student("3", "Ahmed",LocalDate.parse("2011-01-27"), "Storgatan 14",071234567,new GradeLevel(3, "Grade 3", subjectList)));
+        studentList.add(new Student("4", "Rahma",LocalDate.parse("2010-01-27"), "Storgatan 15",071234567,new GradeLevel(4, "Grade 4", subjectList)));
 
     }
 
@@ -46,7 +47,7 @@ public class StudentTest {
     @Test
     public void testToString() throws Exception {
 
-        assertEquals(1, student1.getStudentId());
+        assertEquals("1", student1.getStudentId());
         assertEquals("Omar Ali", student1.getFullName());
         assertEquals(LocalDate.parse("2007-01-27"), student1.getBirthDate());
         assertEquals("Storgatan 32", student1.getAddress());

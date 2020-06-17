@@ -6,13 +6,9 @@ import java.util.List;
 public class GradeLevel {
     private int GradeId;
     private String grade;
-    private List<Subject> commonSubjects;
-    private List<Subject> individualChosenSubjects;
     public GradeLevel(int gradeId, String grade) {
         GradeId = gradeId;
         this.grade = grade;
-        commonSubjects = new ArrayList<Subject>();
-        individualChosenSubjects = new ArrayList<Subject>();
     }
 
     public int getGradeId() {

@@ -15,14 +15,14 @@ import static org.junit.Assert.assertFalse;
 public class GroupTest {
     private List<Group> groupList = new ArrayList<>();
     private GroupDaoImpl groupDaoImpl = new GroupDaoImpl();
-    private Group group1 = new Group(1,"Spanish", 6, 2);
+    private Group group1 = new Group(1,"Spanish");
     private Subject subject1, subject2, subject3, subject4, subject5;
     private Student student1, student2, student3, student4, student5, student6, student7;
 
     @Before
     public void setUp() throws Exception {
 
-        group1 = new Group(1, "group1", 2,6);
+        group1 = new Group(1, "group1");
         subject1 = new Subject(1, "Math");
         subject2 = new Subject(2, "Swedish");
         subject3 = new Subject(3, "English");

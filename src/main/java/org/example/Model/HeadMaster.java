@@ -6,12 +6,10 @@ import java.util.List;
 public class HeadMaster {
     private int headMasterId;
     private String headMasterName;
-    private List<Student> studentList;
 
     public HeadMaster(int headMasterId, String headMasterName) {
         this.headMasterId = headMasterId;
         this.headMasterName = headMasterName;
-        this.studentList = studentList = new ArrayList<>();
     }
 
     public int getHeadMasterId() {

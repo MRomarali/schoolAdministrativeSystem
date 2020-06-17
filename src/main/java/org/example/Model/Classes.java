@@ -25,8 +25,8 @@ public class Classes {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Classes{");
-        sb.append("id=").append(classesId);
-        sb.append(", courseName='").append(classesName).append('\'');
+        sb.append("classesId=").append(classesId);
+        sb.append(", classesName='").append(classesName).append('\'');
         sb.append(", students=").append(students);
         sb.append('}');
         return sb.toString();

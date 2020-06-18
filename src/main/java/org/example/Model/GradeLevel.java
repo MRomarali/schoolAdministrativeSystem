@@ -6,13 +6,19 @@ import java.util.List;
 public class GradeLevel {
     private int GradeId;
     private String grade;
-    private List<Subject> GradeLevelSubjects;
+    private List<Subject> gradeLevelSubjects;
+    private List<GradeLevel> gradeLevelList = new ArrayList<>();
 
     public GradeLevel(int gradeId, String grade, List<Subject> gradeLevelSubjects) {
         GradeId = gradeId;
         this.grade = grade;
-        GradeLevelSubjects = gradeLevelSubjects;
+        this.gradeLevelSubjects = new ArrayList<>();
     }
+
+    public List<GradeLevel> getGradeLevel() {
+        return gradeLevelList;
+    }
+
 
     public int getGradeId() {
         return GradeId;
@@ -23,11 +29,11 @@ public class GradeLevel {
     }
 
     public List<Subject> getGradeLevelSubjects() {
-        return GradeLevelSubjects;
+        return gradeLevelSubjects;
     }
 
     public void setGradeLevelSubjects(List<Subject> gradeLevelSubjects) {
-        GradeLevelSubjects = gradeLevelSubjects;
+        this.gradeLevelSubjects = gradeLevelSubjects;
     }
 
     @Override

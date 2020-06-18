@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Model.Classes;
 import org.example.Model.Subject;
 import org.example.data_access.SubjectDaoImpl;
 import org.junit.Before;
@@ -16,12 +17,27 @@ public class SubjectTest {
     private Subject subject1 = new Subject(1,"Math");
     private Subject subject2 = new Subject(2,"Swedish");
 
-    @Before
-    public void setUp() throws Exception {
+    @Test
+    public void createSubject() throws Exception{
+        //subjectDao.createSubject(1, "Math");
+        //subjectDao.addSubject(1,subject1);
+        assertEquals(subjectDao.findById(1).getSubjects().size(),1);
+
+    }
+
+    @Test
+    public void findByName() throws Exception{
+        subjectDao.createSubject(1, "Math");
+        subjectDao.addSubject(1,subject1);
+        assertEquals("Math",subjectDao.findByName("Math").getSubjectName());
+
     }
 
     @Test
     public void testToString() throws Exception {
+        subjectList = new ArrayList<Subject>();
+        subjectList.add(new Subject(1, "Math"));
+
         for (Subject subject : subjectList) {
             assertEquals(subject.toString(), "Subject{subjectId="+subject.getSubjectId()+"," + " subjectName="+ "'"+subject.getSubjectName()+"'}");
 

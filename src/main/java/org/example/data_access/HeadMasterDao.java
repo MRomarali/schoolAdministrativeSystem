@@ -9,6 +9,8 @@ import java.util.List;
 public interface HeadMasterDao {
     void createHeadMaster(int headMasterId, String headMasterName);
 
+    boolean addHeadMaster(int id, HeadMaster headMaster);
+
     HeadMaster findByName(String name);
     HeadMaster findById(int id);
     List<HeadMaster> findAll();

@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Model.Classes;
 import org.example.Model.GradeLevel;
 import org.example.Model.Group;
 import org.example.Model.Subject;
@@ -19,13 +20,27 @@ public class GradeLevelTest {
     private GradeLevelDaoImpl gradeLevelDaoImpl = new GradeLevelDaoImpl();
     private Subject subject1, subject2, subject3, subject4, subject5;
 
-    @Before
-    public void setUp() throws Exception {
+    @Test
+    public void createGrade() throws Exception{
+        gradeLevelDaoImpl.createGradeLevel(1, "Grade 1", subjectList);
+        gradeLevelDaoImpl.addGradeLevel(1, "Grade 1", subjectList);
+        assertEquals(gradeLevelDaoImpl.findById(1).getGradeLevel().size(),1);
+    }
+
+    @Test
+    public void findByName() throws Exception{
+        gradeLevelDaoImpl.createGradeLevel(1, "Grade 1", subjectList);
+        gradeLevelDaoImpl.addGradeLevel(1,"Grade 1", subjectList);
+        assertEquals("Grade 1",gradeLevelDaoImpl.findByName("Grade 1").getGrade());
+
     }
 
 
     @Test
     public void testToString() throws Exception {
+        gradeLevelList = new ArrayList<GradeLevel>();
+        gradeLevelList.add(new GradeLevel(1, "Grade 1", subjectList));
+
         for (GradeLevel grList : gradeLevelList) {
             assertEquals(grList.toString(), "GradeLevel{GradeId="+grList.getGradeId()+"," + " grade="+ "'"+grList.getGrade()+"'}");
         }
@@ -39,12 +54,14 @@ public class GradeLevelTest {
 
     @Test
     public void gradeId() throws Exception {
-        assertEquals(1, gradeLevelDaoImpl.findById(1).getGradeId());
+        gradeLevel = new GradeLevel(1,"Grade 1", subjectList);
+        assertEquals(1,gradeLevel.getGradeId());
     }
 
     @Test
     public void gradeName() throws Exception {
-        assertEquals("Grade 1", gradeLevelDaoImpl.findByName("Grade 1"));
+        gradeLevel = new GradeLevel(1,"Grade 1", subjectList);
+        assertEquals("Grade 1",gradeLevel.getGrade());
     }
 
     @Test

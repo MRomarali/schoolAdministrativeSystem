@@ -14,6 +14,15 @@ public class SubjectDaoImpl implements SubjectDao {
     private static List<Group> groupList = new ArrayList<>();
     private List<Subject> subjects = new ArrayList<>();
 
+
+    @Override
+    public boolean addSubject(int id, Subject subject){
+        Subject group = findById(id);
+        List<Subject> subjects = group.getSubjects();
+        subjects.add(subject);
+        return true;
+    }
+
     @Override
     public void createSubject(int subjectId, String subjectName){
         Subject subject = new Subject(subjectId, subjectName);

@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.Model.GradeLevel;
-import org.example.Model.HeadMaster;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 import org.example.data_access.HeadMasterDaoImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,13 +18,27 @@ public class HeadMasterTest {
     private HeadMasterDaoImpl headMasterDaoImpl = new HeadMasterDaoImpl();
     private Student student1;
 
-    @Before
-    public void setUp() throws Exception {
-
+    @Test
+    public void createHeadMaster() throws Exception{
+        headMasterDaoImpl.createHeadMaster(1, "Sam");
+        headMasterDaoImpl.addHeadMaster(1,hm);
+        assertEquals(headMasterDaoImpl.findById(1).getHeadmaster().size(),1);
     }
 
     @Test
+    public void findByName() throws Exception{
+        headMasterDaoImpl.createHeadMaster(1, "Sam");
+        headMasterDaoImpl.addHeadMaster(1,hm);
+        assertEquals("Sam",headMasterDaoImpl.findByName("Sam").getHeadMasterName());
+
+    }
+
+
+    @Test
     public void testToString() throws Exception {
+        headMasters = new ArrayList<HeadMaster>();
+        headMasters.add(new HeadMaster(1, "Sam"));
+
         for (HeadMaster headMaster : headMasters) {
             assertEquals(headMaster.toString(), "HeadMaster{headMasterId="+headMaster.getHeadMasterId()+"," + " headMasterName="+ "'"+headMaster.getHeadMasterName()+"'}");
         }
@@ -41,12 +52,14 @@ public class HeadMasterTest {
 
     @Test
     public void headMasterId() throws Exception {
-        assertEquals(1, headMasterDaoImpl.findById(1));
+        hm = new HeadMaster(1,"Sam");
+        assertEquals(1,hm.getHeadMasterId());
     }
 
     @Test
     public void headMasterName() throws Exception {
-        assertEquals(1, headMasterDaoImpl.findById(1));
+        hm = new HeadMaster(1,"Sam");
+        assertEquals("Sam",hm.getHeadMasterName());
     }
 
     @Test

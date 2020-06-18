@@ -14,6 +14,13 @@ public class ClassDaoImpl implements ClassDao {
         Classes classes = new Classes(classesId, classesName, students);
         classesList.add(classes);
     }
+    @Override
+    public boolean addClasses(int id, Classes classes){
+        Classes group = findById(id);
+        List<Classes> classes1 = group.getClasses();
+        classes1.add(group);
+        return true;
+    }
 
     @Override
     public Classes findByName(String name) {

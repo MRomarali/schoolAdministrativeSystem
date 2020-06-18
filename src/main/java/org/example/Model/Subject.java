@@ -6,11 +6,16 @@ import java.util.List;
 public class Subject {
     private int subjectId;
     private String subjectName;
+    private List<Subject> subjectsList = new ArrayList<>();
 
     public Subject(int subjectId, String subjectName) {
         this.subjectId = subjectId;
         this.subjectName = subjectName;
     }
+    public List<Subject> getSubjects() {
+        return subjectsList;
+    }
+
 
     public int getSubjectId() {
         return subjectId;

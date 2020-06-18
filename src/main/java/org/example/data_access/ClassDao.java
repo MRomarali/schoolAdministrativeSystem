@@ -10,6 +10,8 @@ import java.util.List;
 public interface ClassDao {
     void createClasses(int classesId, String classesName, List<Student> students);
 
+    boolean addClasses(int id, Classes classes);
+
     Classes findByName(String name);
     Classes findById(int id);
     List<Classes>findAll();

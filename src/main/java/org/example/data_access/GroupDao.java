@@ -17,7 +17,12 @@ public interface GroupDao {
     void addStudent(Student student);
     boolean removeStudent(Student student);
     boolean removeSubject(Subject subject);
+
+    void createSubject(int subjectId, String subjectName);
+
     boolean addStudentToGroup(int id, Student student);
+
+    boolean addSubject(int id, Subject subject);
 
     void createGroup(int id, String groupName, GradeLevel level, int maxStudents, int minStudents);
 

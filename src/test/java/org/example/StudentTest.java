@@ -1,8 +1,6 @@
 package org.example;
 
-import org.example.Model.GradeLevel;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 import org.example.data_access.StudentDaoImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,15 +17,31 @@ public class StudentTest {
     private List<Subject> subjectList = new ArrayList<>();
     StudentDaoImpl studentDao = new StudentDaoImpl();
     GradeLevel gradeLevel = new GradeLevel(5, "Grade 5", subjectList);
-    private Student student1 = new Student("1","Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
-    private Student student2 = new Student("2", "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3", subjectList));
+    private Student student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+    private Student student2 = new Student(1, "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3", subjectList));
 
-    @Before
-    public void setUp() throws Exception {
+    @Test
+    public void createStudent() throws Exception{
+        studentDao.createStudent(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        studentDao.addStudent(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals(studentDao.findById(1).getStudentId(),1);
+
     }
 
     @Test
+    public void findByName() throws Exception{
+        studentDao.createStudent(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        studentDao.addStudent(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals("Omar Ali",studentDao.findByName("Omar Ali").getFullName());
+
+    }
+
+
+    @Test
     public void testToStrings() throws Exception {
+        studentList = new ArrayList<Student>();
+        studentList.add(new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList)));
+
         for (Student student : studentList) {
             assertEquals(student.toString(), "Student{id="+student.getStudentId()+","
                     + " fullName="+ "'"+student.getFullName()+"',"
@@ -41,7 +55,7 @@ public class StudentTest {
     @Test
     public void testToString() throws Exception {
 
-        assertEquals("1", student1.getStudentId());
+        assertEquals(1, student1.getStudentId());
         assertEquals("Omar Ali", student1.getFullName());
         assertEquals(LocalDate.parse("2007-01-27"), student1.getBirthDate());
         assertEquals("Storgatan 32", student1.getAddress());
@@ -50,28 +64,32 @@ public class StudentTest {
 
     @Test
     public void studentId() throws Exception {
-        assertEquals(1, studentDao.findById(1));
+        student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals(1,student1.getStudentId());
     }
 
     @Test
     public void studentFullName() throws Exception {
-        assertEquals(1, studentDao.findByName(""));
+        student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals("Omar Ali",student1.getFullName());
     }
 
     @Test
     public void birthDate() throws Exception {
-        assertEquals(1, studentDao.findByDate(LocalDate.parse("")));
+        student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals(LocalDate.parse("2007-01-27"),student1.getBirthDate());
     }
 
     @Test
     public void address() throws Exception {
-        assertEquals(1, studentDao.findByAddress(""));
+        student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals("Storgatan 32",student1.getAddress());
     }
 
     @Test
     public void careGiverContactNumber() throws Exception {
-        assertEquals(1, studentDao.findByCarGiverContactNumber(1));
-
+        student1 = new Student(1,"Omar Ali", LocalDate.parse("2007-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+        assertEquals(0731011010,student1.getCareGiverContactNumber());
     }
 
     @Test

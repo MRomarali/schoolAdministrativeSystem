@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Classes {
+    private List<Classes> classesList = new ArrayList<>();
     private int classesId;
     private String classesName;
     private List<Student> students;
@@ -12,6 +13,10 @@ public class Classes {
         this.classesId = classesId;
         this.classesName = classesName;
         this.students = students;
+    }
+
+    public List<Classes> getClasses() {
+        return classesList;
     }
 
     public int getClassesId() {

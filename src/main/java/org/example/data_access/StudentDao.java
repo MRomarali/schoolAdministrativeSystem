@@ -9,7 +9,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface StudentDao {
-    void createStudent(String studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel);
+    void createStudent(int studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel);
+
+    boolean addStudent(int studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel);
 
     Student findByName(String name);
     Student findByAddress(String name);

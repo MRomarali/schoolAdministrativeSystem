@@ -6,15 +6,16 @@ import java.util.Date;
 import java.util.List;
 
 public class Student {
-    private String studentId;
+    private int studentId;
     private String fullName;
     private LocalDate birthDate;
     private String address;
     private int careGiverContactNumber;
     private GradeLevel gradeLevel;
     private List<Subject> individuallyChosenSubjects = new ArrayList<>();
+    private List<Student> studentList = new ArrayList<>();
 
-    public Student(String studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel) {
+    public Student(int studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel) {
         this.studentId = studentId;
         this.fullName = fullName;
         this.birthDate = birthDate;
@@ -23,11 +24,15 @@ public class Student {
         this.gradeLevel = gradeLevel;
     }
 
+    public List<Student> getStudent() {
+        return studentList;
+    }
+
     public GradeLevel getGradeLevel() {
         return gradeLevel;
     }
 
-    public String getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
@@ -55,7 +60,7 @@ public class Student {
         this.individuallyChosenSubjects = individuallyChosenSubjects;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 

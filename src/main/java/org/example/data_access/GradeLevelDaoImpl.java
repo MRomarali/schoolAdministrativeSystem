@@ -18,7 +18,13 @@ public class GradeLevelDaoImpl implements GradeLevelDao {
         GradeLevel gradeLevel = new GradeLevel(gradeId, grade, gradeLevelSubjects);
         gradeLevels.add(gradeLevel);
     }
-
+    @Override
+    public boolean addGradeLevel(int gradeId, String grade, List<Subject> gradeLevelSubjects){
+        GradeLevel gradeLevel = findById(gradeId);
+        List<GradeLevel> level = gradeLevel.getGradeLevel();
+        level.add(gradeLevel);
+        return true;
+    }
     @Override
     public GradeLevel findByName(String name) {
         for (GradeLevel gradeLevel:gradeLevels) {

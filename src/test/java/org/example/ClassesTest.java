@@ -21,13 +21,30 @@ public class ClassesTest {
     private ClassDaoImpl classDao = new ClassDaoImpl();
     private List<Student> studentList = new ArrayList<>();
     private List<Subject> subjectList = new ArrayList<>();
-    private Classes classes = new Classes(1,"1A", studentList);
-    private Student student1 = new Student("1", "Omar Ali", LocalDate.parse("2008-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
-    private Student student2 = new Student("2", "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3", subjectList));
+    private Classes classes = new Classes(1,"A", studentList);
+    private Student student1 = new Student(1, "Omar Ali", LocalDate.parse("2008-01-27"),"Storgatan 32",0731011010,new GradeLevel(5, "Grade 5", subjectList));
+    private Student student2 = new Student(2, "Ahmed Ali", LocalDate.parse("2006-06-16"),"parkgatan 32",0732022020,new GradeLevel(3, "Grade 3", subjectList));
     private GroupDaoImpl groupDaoImpl = new GroupDaoImpl();
     @Before
     public void setUp() throws Exception{
     }
+
+    @Test
+    public void createClasses() throws Exception{
+        classDao.createClasses(1, "A", studentList);
+        classDao.addClasses(1,classes);
+        assertEquals(classDao.findById(1).getClasses().size(),1);
+
+    }
+
+    @Test
+    public void findByName() throws Exception{
+        classDao.createClasses(1, "A", studentList);
+        classDao.addClasses(1,classes);
+        assertEquals("A",classDao.findByName("A").getClassesName());
+
+    }
+
 
     @Test
     public void testToString() throws Exception {
@@ -42,20 +59,19 @@ public class ClassesTest {
     public void testToStrings() throws Exception {
 
         assertEquals(1, classes.getClassesId());
-        assertEquals("1A", classes.getClassesName());
+        assertEquals("A", classes.getClassesName());
     }
 
     @Test
     public void classesId() throws Exception {
-
-        assertEquals(classDao.findById(1).getClassesId(), student1);
-
+        classes = new Classes(1,"1A", studentList);
+        assertEquals(1,classes.getClassesId());
     }
 
     @Test
     public void classesName() throws Exception {
-
-        assertEquals(classDao.findByName("Omar").getClassesName(), student1);
+        classes = new Classes(1,"1A", studentList);
+        assertEquals("1A",classes.getClassesName());
     }
 
     @Test

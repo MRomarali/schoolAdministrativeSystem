@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HeadMaster {
+    private List<HeadMaster> headMasterList = new ArrayList<>();
     private int headMasterId;
     private String headMasterName;
 
@@ -19,6 +20,11 @@ public class HeadMaster {
     public String getHeadMasterName() {
         return headMasterName;
     }
+
+    public List<HeadMaster> getHeadmaster() {
+        return headMasterList;
+    }
+
 
     @Override
     public String toString() {

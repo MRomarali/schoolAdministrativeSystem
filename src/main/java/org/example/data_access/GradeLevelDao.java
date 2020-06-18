@@ -9,6 +9,8 @@ import java.util.List;
 public interface GradeLevelDao {
     void createGradeLevel(int gradeId, String grade, List<Subject> gradeLevelSubjects);
 
+    boolean addGradeLevel(int gradeId, String grade, List<Subject> gradeLevelSubjects);
+
     GradeLevel findByName(String name);
     GradeLevel findById(int id);
     List<GradeLevel> findAll();

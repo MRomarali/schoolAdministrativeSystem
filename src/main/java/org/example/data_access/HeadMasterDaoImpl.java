@@ -1,9 +1,6 @@
 package org.example.data_access;
 
-import org.example.Model.Group;
-import org.example.Model.HeadMaster;
-import org.example.Model.Student;
-import org.example.Model.Subject;
+import org.example.Model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +15,13 @@ public class HeadMasterDaoImpl implements HeadMasterDao {
         headMasterList.add(headMaster);
     }
 
+    @Override
+    public boolean addHeadMaster(int id, HeadMaster headMaster){
+        HeadMaster master = findById(id);
+        List<HeadMaster> masterList = master.getHeadmaster();
+        masterList.add(master);
+        return true;
+    }
 
     @Override
     public HeadMaster findByName(String name) {

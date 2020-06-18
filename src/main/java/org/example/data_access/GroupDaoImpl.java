@@ -74,6 +74,19 @@ public class GroupDaoImpl implements GroupDao {
     public boolean removeSubject(Subject subject) {
         return subjects.remove(subject);
     }
+    @Override
+    public boolean addSubject(int id, Subject subject){
+        Group group = findById(id);
+        List<Subject> subjects = group.getSubjects();
+        subjects.add(subject);
+        return true;
+    }
+
+    @Override
+    public void createSubject(int subjectId, String subjectName){
+        Subject subject = new Subject(subjectId, subjectName);
+        subjects.add(subject);
+    }
 
     @Override
     public boolean addStudentToGroup(int id, Student student){

@@ -11,9 +11,17 @@ public class StudentDaoImpl implements StudentDao {
     private static List<Subject> specifiedSubject = new ArrayList<>();
 
     @Override
-    public void createStudent(String studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel){
+    public void createStudent(int studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel){
         Student student = new Student(studentId, fullName, birthDate, address , careGiverContactNumber, gradeLevel);
         students.add(student);
+    }
+
+    @Override
+    public boolean addStudent(int studentId, String fullName, LocalDate birthDate, String address, int careGiverContactNumber, GradeLevel gradeLevel){
+        Student student = findById(studentId);
+        List<Student> studentList = student.getStudent();
+        studentList.add(student);
+        return true;
     }
 
     @Override
@@ -39,7 +47,7 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public Student findById(int id) {
         for (Student student:students) {
-            if (student.getStudentId().equals(id)) {
+            if (student.getStudentId() == id) {
                 return student;
             }
         }
